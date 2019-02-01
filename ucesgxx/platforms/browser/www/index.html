@@ -105,9 +105,9 @@
         <!-- Nav Bar --->
 
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
+          <a class="mdl-navigation__link" style = "cursor:pointer" onclick="addPointLinePoly()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Add Polygons</a>
+          <a class="mdl-navigation__link" style = "cursor:pointer" onclick="getEarthquakes()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Add Earthquakes</a>
+          <a class="mdl-navigation__link" style = "cursor:pointer" onclick="removeLayers()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Remove all Data</a>
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
@@ -117,7 +117,7 @@
 
       <!-- Main Body --->
       <main class="mdl-layout__content mdl-color--grey-100">
-        <div id="mapid" onclick="addPointLinePoly()">
+        <div id="mapid">
         </div>
       </main>
     </div>
