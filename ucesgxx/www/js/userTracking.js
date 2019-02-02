@@ -25,7 +25,7 @@ function showPosition(position) {
 // Track Distance
 
 function getDistance() {
-    navigator.geolocation.getCurrentPosition(getDistanceFromPoint);
+    navigator.geolocation.getCurrentPosition(getDistanceFromMultiplePoints);
 }
 
 function getDistanceFromPoint(position) {
@@ -57,4 +57,19 @@ function calculateDistance(lat1, lon1, lat2, lon2, unit) {
         dist = dist * 0.8684;
     } // convert miles to nautical miles return dist;
     return dist;
+}
+
+// calculate distance from earthquake points
+function getDistanceFromMultiplePoints(position){
+    var minDistance = 100000000000;
+    var closestQuake = "";
+    for(var i = 0; i < earthquakes.features.length; i++){
+        var obj = earthquakes.features[i];
+        var distance = calculateDistance(position.coords.latitude, position.coords.longitude, obj.geometry.coordinates[0],obj.geometry.coordinates[1], 'K');
+        if (distance < minDistance){
+            minDistance = distance;
+            closestQuake = obj.properties.place;
+        }
+    }
+    alert("Earthquake: " + closestQuake + " is distance " + Math.round(minDistance) + " away");
 }
