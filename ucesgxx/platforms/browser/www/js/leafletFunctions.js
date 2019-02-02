@@ -6,6 +6,7 @@ var earthquakelayer;
 var mypoint;
 var mycircle;
 var mypolygon;
+var earthquakes;
 
 function addPointLinePoly(){
 
@@ -64,6 +65,7 @@ function dataResponse() {
 
 function loadLayer(geoJSONData){
     var json = JSON.parse(geoJSONData);
+    earthquakes = json;
     earthquakelayer = L.geoJson(json).addTo(mymap);
     mymap.fitBounds(earthquakelayer.getBounds());
 }
